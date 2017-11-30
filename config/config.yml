@@ -1,0 +1,7 @@
+:auth:
+  :api_key:    'apikey32char'
+  :api_secret: 'apisecretBase64=='
+  :api_pass:   'apipassphrase'
+:buy:
+  :market:     'BTC-EUR'
+  :daily:      3.00

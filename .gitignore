@@ -1,0 +1,38 @@
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Version specifiers:
+Gemfile.lock
+.ruby-version
+.ruby-gemset
+
+## Environment normalization:
+/.bundle/
+/lib/bundler/man/
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Logs:
+*.log
+
+## Databases:
+*.sqlite
+*.db
+
+## Dotenv library:
+.env
+
+# RVM:
+.rvmrc
