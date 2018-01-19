@@ -1,11 +1,16 @@
 require 'bundler/setup'
 require 'coinbase/exchange'
+require 'logger'
 require 'yaml'
 
 require_relative 'patch/market_bid_ask'
 
 # load configuration file
 config = YAML.load_file(File.join(__dir__, 'config', 'config.yml'))
+
+# initialize logger
+logger = Logger.new($stdout)
+logger.level = Logger::INFO
 
 # initialize API client
 client = Coinbase::Exchange::Client.new(
@@ -19,9 +24,14 @@ client = Coinbase::Exchange::Client.new(
 begin
   tries ||= 5
   transaction = client.buy_market(config[:buy][:daily])
-rescue Coinbase::Exchange::APIError
-  sleep 300
-  (tries -= 1) > 0 ? retry : abort('API error')
+rescue Coinbase::Exchange::APIError => e
+  if (tries -= 1).positive?
+    sleep 300
+    retry
+  else
+    logger.error('client.buy_market') { "#{e.message} (#{e.class})" }
+    abort
+  end
 end
 
-puts "[#{transaction['created_at']}] #{transaction['id']}"
+logger.info('client.buy_market') { transaction['id'].to_s }
