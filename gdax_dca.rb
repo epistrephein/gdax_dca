@@ -29,9 +29,11 @@ rescue Coinbase::Exchange::APIError => e
     sleep 300
     retry
   else
-    logger.error('client.buy_market') { "#{e.message} (#{e.class})" }
+    # log error
+    logger.error(e.class) { e.message }
     abort
   end
 end
 
-logger.info('client.buy_market') { transaction['id'].to_s }
+# log transaction
+logger.info('NEW ORDER') { "id: #{transaction['id']}" }
