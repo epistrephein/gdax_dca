@@ -24,6 +24,7 @@ client = Coinbase::Exchange::Client.new(
 begin
   tries ||= 5
   transaction = client.buy_market(config[:buy][:daily])
+  raise Coinbase::Exchange::APIError, 'endpoint down' if transaction.nil?
 rescue Coinbase::Exchange::APIError => e
   if (tries -= 1).positive?
     sleep 300
