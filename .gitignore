@@ -9,30 +9,41 @@
 /test/version_tmp/
 /tmp/
 
-## Version specifiers:
+# Version specifiers
 Gemfile.lock
 .ruby-version
 .ruby-gemset
 
-## Environment normalization:
+# Environment normalization
 /.bundle/
 /lib/bundler/man/
 
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+# RSpec
+.rspec_status
+/spec/reports
+/spec/examples.txt
 
-## Logs:
+# Documentation cache
+/.yardoc
+/_yardoc
+/doc
+/rdoc
+
+# Logs
 *.log
+*.log.[0-9]*
 
-## Databases:
+# Databases
 *.sqlite
 *.db
 
-## Dotenv library:
-.env
+# Foreman/Dotenv
+Procfile.*
+.env*
 
-# RVM:
+# RVM
 .rvmrc
+
+# Project specific
+config/config.yml
+config/schedule.rb
