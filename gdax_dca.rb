@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'coinbase/exchange'
 require 'logger'
@@ -27,7 +29,7 @@ begin
   raise Coinbase::Exchange::APIError, 'endpoint down' if transaction.nil?
 rescue Coinbase::Exchange::APIError => e
   if (tries -= 1).positive?
-    sleep 300
+    sleep 60
     retry
   else
     # log error

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Coinbase::Exchange::APIClient monkey-patch to support market bid/ask
 # Stolen from https://github.com/coinbase/coinbase-exchange-ruby/pull/28
 
