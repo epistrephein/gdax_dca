@@ -5,7 +5,7 @@ Buy a fixed budget of BTC every day automatically using cronjobs.
 
 ## Usage
 
-Customize `config/config.yml` with the `api_key`, `api_secret` and `api_pass` created in the GDAX API panel.
+Copy `config/config.example.yml` to `config/config.yml` and customize it with the `api_key`, `api_secret` and `api_pass` created in the GDAX API panel.
 Choose your daily fiat budget and set `daily` (GDAX minimum for a market buy is 10€).  
 The script can be used to buy ETH, LTC and BCH by changing the `market` value.
 
